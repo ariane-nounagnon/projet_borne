@@ -1,0 +1,26 @@
+{
+  "display": {
+    "fullscreen": false,
+    "width": 1024,
+    "height": 768,
+    "language": "fr"
+  },
+  "security": {
+    "master_code": "9999",
+    "session_timeout": 300,
+    "max_attempts": 3
+  },
+  "lockers": {
+    "count": 8,
+    "charging_time_limit": 7200
+  },
+  "payment": {
+    "prepaid_code_length": 8,
+    "ussd_code": "*123#",
+    "qr_payment_url": "https://payment.example.com"
+  },
+  "hardware": {
+    "gpio_enabled": false,
+    "touchscreen": true
+  }
+}
