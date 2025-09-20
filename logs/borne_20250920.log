@@ -23,3 +23,29 @@
 2025-09-20 03:36:06,282 - borne_recharge - INFO - Démarrage de l'application borne de recharge
 2025-09-20 03:36:07,744 - main_window - INFO - Fenêtre principale initialisée
 2025-09-20 03:38:36,833 - main_window - INFO - Fermeture de l'application
+2025-09-20 03:38:54,710 - borne_recharge - INFO - Démarrage de l'application borne de recharge
+2025-09-20 03:38:56,160 - main_window - INFO - Fenêtre principale initialisée
+2025-09-20 03:41:46,208 - main_window - INFO - Fermeture de l'application
+2025-09-20 03:42:03,343 - borne_recharge - INFO - Démarrage de l'application borne de recharge
+2025-09-20 03:42:05,411 - main_window - INFO - Fenêtre principale initialisée
+2025-09-20 03:44:30,203 - main_window - INFO - Fermeture de l'application
+2025-09-20 03:50:07,422 - borne_recharge - INFO - Démarrage de l'application borne de recharge
+2025-09-20 03:50:09,436 - main_window - INFO - Fenêtre principale initialisée
+2025-09-20 03:51:39,655 - main_window - INFO - Fermeture de l'application
+2025-09-20 03:55:41,804 - borne_recharge - INFO - Démarrage de l'application borne de recharge
+2025-09-20 03:55:43,082 - main_window - INFO - Fenêtre principale initialisée
+2025-09-20 03:55:49,370 - main_window - INFO - Changement d'écran vers: admin
+2025-09-20 03:55:58,762 - main_window - INFO - Changement d'écran vers: home
+2025-09-20 03:57:59,833 - main_window - INFO - Fermeture de l'application
+2025-09-20 03:58:04,178 - borne_recharge - INFO - Démarrage de l'application borne de recharge
+2025-09-20 03:58:05,495 - main_window - INFO - Fenêtre principale initialisée
+2025-09-20 03:58:12,565 - main_window - INFO - Fermeture de l'application
+2025-09-20 04:04:32,908 - borne_recharge - INFO - Démarrage de l'application borne de recharge
+2025-09-20 04:04:34,367 - main_window - INFO - Fenêtre principale initialisée
+2025-09-20 04:08:39,935 - main_window - INFO - Changement d'écran vers: payment
+2025-09-20 04:09:09,843 - main_window - INFO - Changement d'écran vers: home
+2025-09-20 04:10:15,001 - main_window - INFO - Fermeture de l'application
+2025-09-20 04:10:44,245 - borne_recharge - INFO - Démarrage de l'application borne de recharge
+2025-09-20 04:10:46,143 - main_window - INFO - Fenêtre principale initialisée
+2025-09-20 04:11:36,334 - main_window - INFO - Changement d'écran vers: locker
+2025-09-20 04:11:40,390 - main_window - INFO - Fermeture de l'application
