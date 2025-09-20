@@ -8,27 +8,25 @@ from PyQt5.QtWidgets import (QVBoxLayout, QHBoxLayout, QGridLayout, QLabel,
                             QMessageBox, QInputDialog)
 from PyQt5.QtCore import Qt, QTimer
 from PyQt5.QtGui import QFont
-
 from src.ui.screens.base_screen import BaseScreen
 
 class AdminScreen(BaseScreen):
     """Écran d'administration pour la gestion de la borne"""
-    
+
     def __init__(self, config, locker_manager, payment_manager):
-        super().__init__(config, locker_manager, payment_manager)
+        # Initialise tes attributs personnalisés en premier
         self.is_authenticated = False
         self.failed_attempts = 0
         self.max_attempts = 3
-    
+        # Ensuite seulement, appelle la classe mère
+        super().__init__(config, locker_manager, payment_manager)
+
+
     def setup_ui(self):
         """Configure l'interface de l'écran d'administration"""
         super().setup_ui()
-        
-        # Titre
         self.title_label = self.create_title("🔧 Administration")
         self.layout.addWidget(self.title_label)
-        
-        # Zone de contenu principal
         self.content_frame = QFrame()
         self.content_frame.setStyleSheet("""
             QFrame {
@@ -40,8 +38,6 @@ class AdminScreen(BaseScreen):
         self.content_layout = QVBoxLayout(self.content_frame)
         self.content_layout.setContentsMargins(30, 30, 30, 30)
         self.layout.addWidget(self.content_frame)
-        
-        # Zone de message
         self.message_label = QLabel()
         self.message_label.setFont(QFont("Segoe UI", 16))
         self.message_label.setAlignment(Qt.AlignCenter)
@@ -55,41 +51,31 @@ class AdminScreen(BaseScreen):
             }
         """)
         self.layout.addWidget(self.message_label)
-        
-        # Afficher l'écran de connexion par défaut
         self._show_login_screen()
-        
         self.layout.addStretch()
-        
-        # Barre de navigation
         nav_layout = self.create_navigation_bar()
         self.layout.addLayout(nav_layout)
     
     def _show_login_screen(self):
         """Affiche l'écran de connexion administrateur"""
-        # Nettoyer le contenu existant
         for i in reversed(range(self.content_layout.count())):
-            self.content_layout.itemAt(i).widget().setParent(None)
-        
-        # Instructions de connexion
+            widget = self.content_layout.itemAt(i).widget()
+            if widget is not None:
+                widget.setParent(None)
         login_instructions = QLabel("""
         🔐 Accès Administrateur
-        
+
         Entrez le code maître pour accéder aux fonctions d'administration
         """)
         login_instructions.setFont(QFont("Segoe UI", 16))
         login_instructions.setAlignment(Qt.AlignCenter)
         login_instructions.setStyleSheet("color: #cccccc; margin: 20px 0;")
         self.content_layout.addWidget(login_instructions)
-        
-        # Champ de saisie du code maître
         code_layout = QHBoxLayout()
-        
         code_label = QLabel("Code maître:")
         code_label.setFont(QFont("Segoe UI", 16, QFont.Bold))
         code_label.setStyleSheet("color: #ffffff;")
         code_layout.addWidget(code_label)
-        
         self.master_code_input = QLineEdit()
         self.master_code_input.setFont(QFont("Segoe UI", 18))
         self.master_code_input.setPlaceholderText("Entrez le code maître...")
@@ -108,14 +94,9 @@ class AdminScreen(BaseScreen):
         """)
         self.master_code_input.returnPressed.connect(self._authenticate)
         code_layout.addWidget(self.master_code_input)
-        
         self.content_layout.addLayout(code_layout)
-        
-        # Bouton de connexion
         login_button = self.create_button("🔓 Se connecter", self._authenticate)
         self.content_layout.addWidget(login_button)
-        
-        # Afficher les tentatives échouées
         if self.failed_attempts > 0:
             attempts_label = QLabel(f"⚠️ Tentatives échouées: {self.failed_attempts}/{self.max_attempts}")
             attempts_label.setFont(QFont("Segoe UI", 12))
@@ -123,6 +104,7 @@ class AdminScreen(BaseScreen):
             attempts_label.setStyleSheet("color: #dc3545; margin: 10px 0;")
             self.content_layout.addWidget(attempts_label)
     
+
     def _authenticate(self):
         """Authentifie l'administrateur"""
         entered_code = self.master_code_input.text().strip()
